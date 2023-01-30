@@ -11,11 +11,11 @@
 
 🎨 *ARTES* 🎨
 
-- [Arthur Dartagnan](www.githubdearthur.com)
+- [Artur Dartagnan](https://github.com/Websword)
 
 ⚙️ *GAME DESIGN* ⚙️
 
-- [José Augusto](www.githubdeJosé.com)<br>
+- [José Augusto](https://github.com/JoseAugusto011)<br>
 - [Mikael Menezes](www.insiraaqui.com)
 
 🔊 *SONS* 🔊
