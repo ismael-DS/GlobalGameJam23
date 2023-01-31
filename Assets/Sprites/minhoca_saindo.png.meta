@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8275dad6a36553a4185c04ecd8f656cc
+guid: bf331802ed8f5894e9464356c35fc1ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_caju_0
+      name: minhoca_saindo_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 25
-        width: 25
-        height: 25
+        y: 90
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57e55e4476b5d034c97e4f105723bb0d
-      internalID: -1254483729
+      spriteID: 9eef8f4909cbcac4188e2a18e95316b1
+      internalID: -1936763490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_caju_1
+      name: minhoca_saindo_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 25
-        height: 25
+        y: 72
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a001eb353cdc2ad4bb85fc53c1eaa422
-      internalID: 1182235362
+      spriteID: d32d5565aa9d6d4408dd61f0cf11614e
+      internalID: 1048082135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minhoca_saindo_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 54
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9651a2eef31f13746a6987abe404ef50
+      internalID: 1127764794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minhoca_saindo_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 36
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c0746c98cf7be4ab5d44a6933db0e3
+      internalID: 1756166625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minhoca_saindo_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7851fbaeaba13646827e853c8cf584e
+      internalID: -1323725478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minhoca_saindo_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c5d9d7bec8c9a04c9a58a6f7f373e69
+      internalID: -1957391781
       vertices: []
       indices: 
       edges: []
@@ -169,8 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      idle_caju_1: 1182235362
-      idle_caju_0: -1254483729
+      minhoca_saindo_0: -1936763490
+      minhoca_saindo_4: -1323725478
+      minhoca_saindo_2: 1127764794
+      minhoca_saindo_1: 1048082135
+      minhoca_saindo_3: 1756166625
+      minhoca_saindo_5: -1957391781
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

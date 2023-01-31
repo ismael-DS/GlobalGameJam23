@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8275dad6a36553a4185c04ecd8f656cc
+guid: 888d5f4a79d57c84d803a3519bd0781e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_caju_0
+      name: castanha_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57e55e4476b5d034c97e4f105723bb0d
-      internalID: -1254483729
+      spriteID: f3595c5a6322bdb47b775cd7dfc08d93
+      internalID: 440245891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_caju_1
+      name: castanha_idle_1
       rect:
         serializedVersion: 2
         x: 0
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a001eb353cdc2ad4bb85fc53c1eaa422
-      internalID: 1182235362
+      spriteID: 4c8897d92d1194b479bb5fdef117abf9
+      internalID: -1915640902
       vertices: []
       indices: 
       edges: []
@@ -169,8 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      idle_caju_1: 1182235362
-      idle_caju_0: -1254483729
+      castanha_idle_0: 440245891
+      castanha_idle_1: -1915640902
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
