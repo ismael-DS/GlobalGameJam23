@@ -14,7 +14,9 @@ public class Player : MonoBehaviour
     [SerializeField] Animator headAnimator, bodyAnimator;
     [SerializeField] PlayerStats p1;
 
+    public float attackRange = 2f; // :3 Distância máxima para atacar
 
+    private Transform playerTransform; // :3 Referência ao Transform do player para calcular a distância entre ele e o inimigo
 
     void Start()
     {
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour
        headAnimator = head.GetComponent<Animator>();
        bodyAnimator = body.GetComponent<Animator>();
        p1 = player.GetComponent<PlayerStats>();
+
+       playerTransform = GetComponent<Transform>(); // :3 Inicializa a referência ao Transform do player
     }
 
 
@@ -62,14 +66,35 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
 
         
-        // Chegando se o player esta tocando o chão e então poderá pular apertando W
+        // Checando se o player esta tocando o chão e então poderá pular apertando W
         if(isGround && Input.GetKey(KeyCode.W)){
             Jump();
         }
         
 
-        
+        if (Input.GetKeyDown(KeyCode.J)) // :3 Se o jogador apertar J ataca
+        {
+            
+            Collider2D[] hits = Physics2D.OverlapCircleAll(playerTransform.position, attackRange); // :3 Encontra todos os objetos dentro de um raio de attackRange
 
+            
+            foreach (Collider2D hit in hits) // :3 Percorre todos os objetos encontrados
+            {
+                // :3 Verifica se o objeto possui o componente ant
+                ant ant = hit.GetComponent<ant>();
+                if (ant != null)
+                {
+                    // :3 Diminui a vida do inimigo
+                    ant.life--;
+
+                    // :3 Verifica se a vida do inimigo chegou a zero
+                    if (ant.life <= 0)
+                    {
+                        Destroy(ant.gameObject); // :3 Destroi inimigo
+                    }
+                }
+            }
+        }
 
     }
 
@@ -83,9 +108,14 @@ public class Player : MonoBehaviour
         if(coll.gameObject.tag == "ground"){
             isGround = true;
     }
-        if(coll.gameObject.tag == "enemy"){
+        if(coll.gameObject.tag == "ant"){ // :3 Se o player colidir com uma formiga, ele perde 1 de vida (Modificado para inimigos darem direfentes tipos de dano)
             p1.takeDamage(1);
-
+        }
+        if(coll.gameObject.tag == "lagarta"){ // :3 Se o player colidir com uma lagarta, ele perde 2 de vida (Modificado para inimigos darem direfentes tipos de dano)
+            p1.takeDamage(2);
+        }
+        if(coll.gameObject.tag == "passaro"){ // :3 Se o player colidir com um passaro, ele perde 3 de vida (Modificado para inimigos darem direfentes tipos de dano)
+            p1.takeDamage(3);
         }
 }
     // Função para testar se o player saiu da colisão com esse objeto.
