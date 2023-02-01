@@ -14,7 +14,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] GameObject body;
     [SerializeField] GameObject head;
     [SerializeField] Vector3 player_pos;
-    [SerializeField] RuntimeAnimatorController newController1, newController2, newController3, newControllerHead, newControllerHead2, newControllerHead3;
+    [SerializeField] RuntimeAnimatorController newController1, newController2, newController3, newController4, 
+    newControllerHead, newControllerHead2, newControllerHead3, newControllerHead4;
 
    
 
@@ -48,9 +49,14 @@ public class PlayerStats : MonoBehaviour
             anim.runtimeAnimatorController = newController2;
             headReset.runtimeAnimatorController = newControllerHead2;
         }
-        else if(playerLife <= 2.5f){
+        else if(playerLife <= 2.5f && playerLife > 0){
             anim.runtimeAnimatorController = newController3;
             headReset.runtimeAnimatorController = newControllerHead3;
+        }
+        else if(playerLife <= 0){
+            playerLife = 0;
+            anim.runtimeAnimatorController = newController4;
+            headReset.runtimeAnimatorController = newControllerHead4;
         }
     }
 

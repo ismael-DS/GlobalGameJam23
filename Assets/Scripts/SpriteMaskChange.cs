@@ -21,6 +21,8 @@ public class SpriteMaskChange : MonoBehaviour
     [SerializeField] Sprite spr20;
     [SerializeField] [Header("Mask Walk 3/4")] Sprite spr21;
     [SerializeField] Sprite spr22, spr23, spr24;
+    [SerializeField] [Header("Mask Body Die")] Sprite spr25;
+    [SerializeField] Sprite spr26, spr27, spr28, spr29, spr30;
 
 
 
@@ -103,6 +105,24 @@ public class SpriteMaskChange : MonoBehaviour
     }
     void ChangeSpriteMask24(){
         mask.sprite = spr24;
+    }
+    void ChangeSpriteMask25(){
+        mask.sprite = spr25;
+    }
+    void ChangeSpriteMask26(){
+        mask.sprite = spr26;
+    }
+    void ChangeSpriteMask27(){
+        mask.sprite = spr27;
+    }
+    void ChangeSpriteMask28(){
+        mask.sprite = spr28;
+    }
+    void ChangeSpriteMask29(){
+        mask.sprite = spr29;
+    }
+    void ChangeSpriteMask30(){
+        mask.sprite = spr30;
     }
     
 }
