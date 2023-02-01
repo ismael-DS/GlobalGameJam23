@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: caju_body_idle
+  m_Name: caju_andando
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,14 +20,18 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1254483729, guid: 8275dad6a36553a4185c04ecd8f656cc, type: 3}
-    - time: 0.33333334
-      value: {fileID: 1182235362, guid: 8275dad6a36553a4185c04ecd8f656cc, type: 3}
+      value: {fileID: 1257305278, guid: 53ad0756102a0d8448d4bba2ae38ede2, type: 3}
+    - time: 0.2
+      value: {fileID: -1950218723, guid: 53ad0756102a0d8448d4bba2ae38ede2, type: 3}
+    - time: 0.4
+      value: {fileID: 794151381, guid: 53ad0756102a0d8448d4bba2ae38ede2, type: 3}
+    - time: 0.6
+      value: {fileID: 891481269, guid: 53ad0756102a0d8448d4bba2ae38ede2, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 3
+  m_SampleRate: 5
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -42,14 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1254483729, guid: 8275dad6a36553a4185c04ecd8f656cc, type: 3}
-    - {fileID: 1182235362, guid: 8275dad6a36553a4185c04ecd8f656cc, type: 3}
+    - {fileID: 1257305278, guid: 53ad0756102a0d8448d4bba2ae38ede2, type: 3}
+    - {fileID: -1950218723, guid: 53ad0756102a0d8448d4bba2ae38ede2, type: 3}
+    - {fileID: 794151381, guid: 53ad0756102a0d8448d4bba2ae38ede2, type: 3}
+    - {fileID: 891481269, guid: 53ad0756102a0d8448d4bba2ae38ede2, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666667
+    m_StopTime: 0.8
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -70,14 +76,28 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: ChangeSpriteMask2
+    functionName: ChangeSpriteMask3
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.33333334
-    functionName: ChangeSpriteMask
+  - time: 0.2
+    functionName: ChangeSpriteMask4
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.4
+    functionName: ChangeSpriteMask5
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6
+    functionName: ChangeSpriteMask6
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

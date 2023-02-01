@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: caju_body_idle
+  m_Name: caju_body_idle_1-4
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1254483729, guid: 8275dad6a36553a4185c04ecd8f656cc, type: 3}
+      value: {fileID: 1586277290, guid: dbc9deb00ae9b604990e6f66c4e5bdcf, type: 3}
     - time: 0.33333334
-      value: {fileID: 1182235362, guid: 8275dad6a36553a4185c04ecd8f656cc, type: 3}
+      value: {fileID: 1454952043, guid: dbc9deb00ae9b604990e6f66c4e5bdcf, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1254483729, guid: 8275dad6a36553a4185c04ecd8f656cc, type: 3}
-    - {fileID: 1182235362, guid: 8275dad6a36553a4185c04ecd8f656cc, type: 3}
+    - {fileID: 1586277290, guid: dbc9deb00ae9b604990e6f66c4e5bdcf, type: 3}
+    - {fileID: 1454952043, guid: dbc9deb00ae9b604990e6f66c4e5bdcf, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -70,14 +70,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: ChangeSpriteMask2
+    functionName: ChangeSpriteMask8
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.33333334
-    functionName: ChangeSpriteMask
+    functionName: ChangeSpriteMask7
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
