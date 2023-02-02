@@ -6,6 +6,7 @@ public class ant : MonoBehaviour
 {
     public float speed = 2f; // Velocidade do inimigo
     private bool facingRight = true; // Direção atual do inimigo
+    private SpriteRenderer antSprite;
     
     public int life = 3; //vida do inimigo
 
@@ -14,12 +15,19 @@ public class ant : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        antSprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
         // Movimenta o inimigo na direção atual
-        rb.velocity = new Vector2(speed * (facingRight ? 1 : -1), 0);
+        rb.velocity = new Vector2(speed * (facingRight ? 1 : -1), rb.velocity.y);
+
+        if(facingRight){
+            antSprite.flipX = true;
+        }else{
+            antSprite.flipX = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

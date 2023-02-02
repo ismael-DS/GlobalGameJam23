@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         
+        
 
         // Capturando input horizontal do jogador.
         horizontalInput = Input.GetAxis("Horizontal");
@@ -69,6 +70,9 @@ public class Player : MonoBehaviour
         // Checando se o player esta tocando o chão e então poderá pular apertando W
         if(isGround && Input.GetKey(KeyCode.W)){
             Jump();
+            bodyAnimator.SetBool("isJumping", true);
+            bodyAnimator.SetBool("isWalking", false);
+            bodyAnimator.SetBool("isIdle", false);
         }
         
 
@@ -106,7 +110,9 @@ public class Player : MonoBehaviour
     // Função para testar se o player está colidindo com algum objeto.
     void OnCollisionEnter2D(Collision2D coll){
         if(coll.gameObject.tag == "ground"){
+            bodyAnimator.SetBool("isJumping", false);
             isGround = true;
+
     }
         if(coll.gameObject.tag == "ant"){ // :3 Se o player colidir com uma formiga, ele perde 1 de vida (Modificado para inimigos darem direfentes tipos de dano)
             p1.takeDamage(1);

@@ -23,6 +23,17 @@ public class SpriteMaskChange : MonoBehaviour
     [SerializeField] Sprite spr22, spr23, spr24;
     [SerializeField] [Header("Mask Body Die")] Sprite spr25;
     [SerializeField] Sprite spr26, spr27, spr28, spr29, spr30;
+    [SerializeField] [Header("Mask Jump No Damage")] Sprite spr31;
+    [SerializeField] Sprite spr32;
+    [SerializeField] [Header("Mask Jump 1/4")] Sprite spr33;
+    [SerializeField] Sprite spr34;
+    [SerializeField] [Header("Mask Jump 2/4")] Sprite spr35;
+    [SerializeField] Sprite spr36;
+    [SerializeField] [Header("Mask Jump 3/4")] Sprite spr37;
+    [SerializeField] Sprite spr38;
+    
+
+
 
 
 
@@ -123,6 +134,30 @@ public class SpriteMaskChange : MonoBehaviour
     }
     void ChangeSpriteMask30(){
         mask.sprite = spr30;
+    }
+    void ChangeSpriteMask31(){
+        mask.sprite = spr31;
+    }
+    void ChangeSpriteMask32(){
+        mask.sprite = spr32;
+    }
+    void ChangeSpriteMask33(){
+        mask.sprite = spr33;
+    }
+    void ChangeSpriteMask34(){
+        mask.sprite = spr34;
+    }
+    void ChangeSpriteMask35(){
+        mask.sprite = spr35;
+    }
+    void ChangeSpriteMask36(){
+        mask.sprite = spr36;
+    }
+    void ChangeSpriteMask37(){
+        mask.sprite = spr37;
+    }
+    void ChangeSpriteMask38(){
+        mask.sprite = spr38;
     }
     
 }
