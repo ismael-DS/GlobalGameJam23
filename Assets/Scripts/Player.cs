@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerStats p1;
 
     public float attackRange = 2f; // :3 Distância máxima para atacar
-
+    public float boomerangueRange = 5f; // :3 Distância máxima para atirar o boomerangue
     private Transform playerTransform; // :3 Referência ao Transform do player para calcular a distância entre ele e o inimigo
 
     void Start()
@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        
         
 
         // Capturando input horizontal do jogador.
@@ -70,9 +69,6 @@ public class Player : MonoBehaviour
         // Checando se o player esta tocando o chão e então poderá pular apertando W
         if(isGround && Input.GetKey(KeyCode.W)){
             Jump();
-            bodyAnimator.SetBool("isJumping", true);
-            bodyAnimator.SetBool("isWalking", false);
-            bodyAnimator.SetBool("isIdle", false);
         }
         
 
@@ -82,6 +78,28 @@ public class Player : MonoBehaviour
             Collider2D[] hits = Physics2D.OverlapCircleAll(playerTransform.position, attackRange); // :3 Encontra todos os objetos dentro de um raio de attackRange
 
             
+            foreach (Collider2D hit in hits) // :3 Percorre todos os objetos encontrados
+            {
+                // :3 Verifica se o objeto possui o componente ant
+                ant ant = hit.GetComponent<ant>();
+                if (ant != null)
+                {
+                    // :3 Diminui a vida do inimigo
+                    ant.life--;
+
+                    // :3 Verifica se a vida do inimigo chegou a zero
+                    if (ant.life <= 0)
+                    {
+                        Destroy(ant.gameObject); // :3 Destroi inimigo
+                    }
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.K)) // :3 Se o jogador apertar K atira o boomerangue
+        {
+            Collider2D[] hits = Physics2D.OverlapCircleAll(playerTransform.position, boomerangueRange); // :3 Encontra todos os objetos dentro de um raio de boomerangueRange
+
             foreach (Collider2D hit in hits) // :3 Percorre todos os objetos encontrados
             {
                 // :3 Verifica se o objeto possui o componente ant
@@ -110,9 +128,7 @@ public class Player : MonoBehaviour
     // Função para testar se o player está colidindo com algum objeto.
     void OnCollisionEnter2D(Collision2D coll){
         if(coll.gameObject.tag == "ground"){
-            bodyAnimator.SetBool("isJumping", false);
             isGround = true;
-
     }
         if(coll.gameObject.tag == "ant"){ // :3 Se o player colidir com uma formiga, ele perde 1 de vida (Modificado para inimigos darem direfentes tipos de dano)
             p1.takeDamage(1);
