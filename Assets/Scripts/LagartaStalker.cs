@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LagartaStalker : MonoBehaviour
 {
-    public float activationDistance; 
+   /* public float activationDistance; 
     public float moveSpeed; 
     public Animator animator; 
 
@@ -29,5 +29,5 @@ public class LagartaStalker : MonoBehaviour
             position += direction * moveSpeed * Time.deltaTime;
             transform.position = position;
         }
-    }
+    }*/
 }

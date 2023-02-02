@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LagartaBasic : MonoBehaviour
 {
-    public float activationDistance; // Distância para ativar o inimigo
+    /*public float activationDistance; // Distância para ativar o inimigo
     public float moveSpeed; // Velocidade de movimento do inimigo
     public float directionChangeTime = 2f; // Tempo para mudar de direção do inimigo
 
@@ -53,5 +53,5 @@ public class LagartaBasic : MonoBehaviour
                 directionChangeTimer = directionChangeTime;
             }
         }
-    }
+    }*/
 }

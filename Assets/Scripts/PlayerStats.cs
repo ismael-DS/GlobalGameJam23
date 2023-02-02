@@ -8,11 +8,16 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] float playerLife;
     [SerializeField] float maxLife = 10f;
     [SerializeField] GameObject popupText;
+    [SerializeField] Material hitMaterial;
+    [SerializeField] Material defaultMaterial;
+    [SerializeField] float dmgImpulse;
+    [SerializeField] Player p;
     [SerializeField] Animator anim;
     [SerializeField] int damageTaked;
     [SerializeField] Animator headReset;
     [SerializeField] GameObject body;
     [SerializeField] GameObject head;
+    [SerializeField] GameObject color;
     [SerializeField] Vector3 player_pos;
     [SerializeField] RuntimeAnimatorController newController1, newController2, newController3, newController4, 
     newControllerHead, newControllerHead2, newControllerHead3, newControllerHead4;
@@ -24,19 +29,21 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         
-
+        defaultMaterial = body.GetComponent<SpriteRenderer>().material;
         anim = body.GetComponent<Animator>();
         headReset = head.GetComponent<Animator>();
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+
+
 
         player_pos = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, GameObject.FindGameObjectWithTag("Player").transform.position.z);
 
-        
+
         damageTaked = (int)(playerLife - maxLife);
 
         popupText.GetComponent<TMP_Text>().text = damageTaked.ToString();
@@ -63,5 +70,66 @@ public class PlayerStats : MonoBehaviour
     public void takeDamage(float damage){
         playerLife -= damage;
         Instantiate(popupText, player_pos, Quaternion.identity, transform);
+        p.setKnockback(dmgImpulse);
+        StartCoroutine("Invunerability");
+    }
+    IEnumerator Invunerability(){
+        Physics2D.IgnoreLayerCollision(6, 7, true);
+        body.GetComponent<SpriteRenderer>().material = hitMaterial;
+        head.GetComponent<SpriteRenderer>().material = hitMaterial;
+        color.GetComponent<SpriteRenderer>().material = hitMaterial;
+        yield return new WaitForSeconds(.3f);
+        body.GetComponent<SpriteRenderer>().material = defaultMaterial;
+        head.GetComponent<SpriteRenderer>().material = defaultMaterial;
+        color.GetComponent<SpriteRenderer>().material = defaultMaterial;
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        head.GetComponent<SpriteRenderer>().enabled = !head.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteRenderer>().enabled = !body.GetComponent<SpriteRenderer>().enabled;
+        body.GetComponent<SpriteMask>().enabled = !body.GetComponent<SpriteMask>().enabled;
+        yield return new WaitForSeconds(.3f);
+        Physics2D.IgnoreLayerCollision(6, 7, false);
     }
 }

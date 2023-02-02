@@ -6,10 +6,11 @@ public class Player : MonoBehaviour
 {
 
     // Inicializando variáveis que serão usadas
-    [SerializeField] Rigidbody2D rb;
+    [SerializeField] public Rigidbody2D rb;
     [SerializeField] float speed, jumpForce;
     [SerializeField] float horizontalInput;
     [SerializeField] bool isGround;
+    [SerializeField] float dmgKnockback;
     [SerializeField] GameObject head,body,player;
     [SerializeField] Animator headAnimator, bodyAnimator;
     [SerializeField] PlayerStats p1;
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        Debug.Log(rb.velocity);
 
         // Capturando input horizontal do jogador.
         horizontalInput = Input.GetAxis("Horizontal");
@@ -64,11 +65,18 @@ public class Player : MonoBehaviour
 
         // Aplicando velocidade ao Rigidbody a partir do input.
         rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
-
+        if(dmgKnockback != 0){
+            rb.velocity = new Vector2(dmgKnockback, rb.velocity.y);
+            dmgKnockback = 0;
+        }
+        
         
         // Checando se o player esta tocando o chão e então poderá pular apertando W
         if(isGround && Input.GetKey(KeyCode.W)){
             Jump();
+            bodyAnimator.SetBool("isJumping", true);
+            bodyAnimator.SetBool("isWalking", false);
+            bodyAnimator.SetBool("isIdle", false);
         }
         
 
@@ -128,7 +136,9 @@ public class Player : MonoBehaviour
     // Função para testar se o player está colidindo com algum objeto.
     void OnCollisionEnter2D(Collision2D coll){
         if(coll.gameObject.tag == "ground"){
+            bodyAnimator.SetBool("isJumping", false);
             isGround = true;
+            
     }
         if(coll.gameObject.tag == "ant"){ // :3 Se o player colidir com uma formiga, ele perde 1 de vida (Modificado para inimigos darem direfentes tipos de dano)
             p1.takeDamage(1);
@@ -146,4 +156,15 @@ public class Player : MonoBehaviour
             isGround = false;
         }
     }
+
+    public void setKnockback(float dmgImpulse){
+        if(body.transform.rotation.y == 1f){
+            dmgKnockback = dmgImpulse;
+        }
+        else if(body.transform.rotation.y == 0f){
+            dmgKnockback = -dmgImpulse;
+        }
+    }
+
+
 }
