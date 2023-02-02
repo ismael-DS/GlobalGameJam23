@@ -33,7 +33,6 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(rb.velocity);
 
         // Capturando input horizontal do jogador.
         horizontalInput = Input.GetAxis("Horizontal");
