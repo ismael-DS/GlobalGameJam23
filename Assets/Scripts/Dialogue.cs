@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Assets.SimpleLocalization;
 
 public class Dialogue : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] string[] lines;
-    [SerializeField] float textSpeed; 
+    [SerializeField] float textSpeed;
+    [SerializeField] TextMeshProUGUI[] textLines;
     [SerializeField] int index;
     [SerializeField] float timeCount;
+
     void Awake(){
-        
+        LocalizationManager.Read();
+        LocalizationManager.Language = "Portuguese";
+        for(int i = 0; i < lines.Length; i++){
+            lines[i] = textLines[i].text;
+        }
     }
     void Start()
     {
