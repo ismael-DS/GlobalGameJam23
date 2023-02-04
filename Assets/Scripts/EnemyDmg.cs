@@ -22,8 +22,8 @@ public class EnemyDmg : MonoBehaviour
 
 
     void OnCollisionEnter2D(Collision2D coll){
-        if(coll.gameObject.tag == "enemy"){
-            coll.gameObject.GetComponent<ant>().life -= attackDmg;
+        if(coll.gameObject.tag == "ant"){
+            coll.gameObject.GetComponent<ant>().takeDamage(2f);
         }
     }
 }

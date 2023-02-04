@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1212518165}
   m_Layer: 6
-  m_Name: AttackPosition
+  m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -107,13 +107,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212518164}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.337, y: -0.673, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.337, y: -0.6730001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2230232971581411708}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2230232970709013808
 GameObject:
@@ -466,8 +466,8 @@ Transform:
   m_Children:
   - {fileID: 2230232970709013809}
   - {fileID: 2230232971120860006}
-  - {fileID: 1853951765379840689}
   - {fileID: 1212518165}
+  - {fileID: 1853951765379840689}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -625,6 +625,7 @@ GameObject:
   - component: {fileID: 9009550340081602652}
   - component: {fileID: 4156568471626600320}
   - component: {fileID: 895034355}
+  - component: {fileID: 895034356}
   m_Layer: 6
   m_Name: Worm
   m_TagString: Untagged
@@ -645,7 +646,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2230232971581411708}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9009550340081602652
 SpriteRenderer:
@@ -745,3 +746,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37772048, y: 1.9905543}
   m_EdgeRadius: 0
+--- !u!114 &895034356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847162108259364583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a760f210d92a544b64c1822d637e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDmg: 2

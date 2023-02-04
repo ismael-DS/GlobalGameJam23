@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject head,body,player;
     [SerializeField] Animator headAnimator, bodyAnimator;
     [SerializeField] PlayerStats p1;
-    [SerializeField] Transform attackPoint;
+    [SerializeField] Transform attackPointRight, attackPointLeft;
+    [SerializeField] bool isRight;
     [SerializeField] GameObject worm;
 
     public float attackRange = 2f; // :3 Distância máxima para atacar
@@ -59,10 +60,17 @@ public class Player : MonoBehaviour
         if(horizontalInput < 0){
             head.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
             body.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            worm.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            isRight = false;
+
+            
+
         // Se o Input for positivo, eu dou flip no sprite e na Mask para o lado direito.
         }else if(horizontalInput > 0){
             body.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             head.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            worm.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            isRight = true;
         }
 
         // Aplicando velocidade ao Rigidbody a partir do input.
@@ -85,7 +93,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.J)) // :3 Se o jogador apertar J ataca
         {
             worm.SetActive(true);
-            worm.transform.position = attackPoint.transform.position;
+            if(isRight){
+                worm.transform.position = attackPointRight.transform.position;
+            }else{
+                worm.transform.position = attackPointLeft.transform.position;
+            }
+            
             worm.GetComponent<Animator>().SetBool("isAttack", true);
             worm.GetComponent<Animator>().SetBool("isOut", false);
             worm.GetComponent<BoxCollider2D>().enabled = true;
@@ -122,14 +135,14 @@ public class Player : MonoBehaviour
             
     }
         if(coll.gameObject.tag == "ant"){ // :3 Se o player colidir com uma formiga, ele perde 1 de vida (Modificado para inimigos darem direfentes tipos de dano)
-            p1.takeDamage(1);
-        }
-        if(coll.gameObject.tag == "lagarta"){ // :3 Se o player colidir com uma lagarta, ele perde 2 de vida (Modificado para inimigos darem direfentes tipos de dano)
             p1.takeDamage(2);
         }
-        if(coll.gameObject.tag == "passaro"){ // :3 Se o player colidir com um passaro, ele perde 3 de vida (Modificado para inimigos darem direfentes tipos de dano)
+        if(coll.gameObject.tag == "lagarta"){ // :3 Se o player colidir com uma lagarta, ele perde 2 de vida (Modificado para inimigos darem direfentes tipos de dano)
             p1.takeDamage(3);
         }
+        /*if(coll.gameObject.tag == "passaro"){ // :3 Se o player colidir com um passaro, ele perde 3 de vida (Modificado para inimigos darem direfentes tipos de dano)
+            p1.takeDamage(3);
+        }*/
 }
     // Função para testar se o player saiu da colisão com esse objeto.
     void OnCollisionExit2D(Collision2D coll){

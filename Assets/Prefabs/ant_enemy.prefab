@@ -147,4 +147,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  life: 3
+  dmgKnockback: 0
+  dmgImpulse: 35
+  popupText: {fileID: 5423688241784925200, guid: 04356210cd659904086369dc6cea2009, type: 3}
+  ant_pos: {x: 0, y: 0, z: 0}
+  defaultMaterial: {fileID: 0}
+  hitMaterial: {fileID: 2100000, guid: f512bb637eb8f5843b59da62cdf5522f, type: 2}
+  life: 5
