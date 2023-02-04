@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
 
     // Inicializando variáveis que serão usadas
     [SerializeField] public Rigidbody2D rb;
-    [SerializeField] float speed, jumpForce;
-    [SerializeField] float horizontalInput;
+    [SerializeField] public float speed, jumpForce;
+    [SerializeField] public float horizontalInput;
     [SerializeField] public bool isGround;
     [SerializeField] float dmgKnockback;
     [SerializeField] GameObject head,body,player;
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform attackPointRight, attackPointLeft;
     [SerializeField] bool isRight;
     [SerializeField] GameObject worm;
+    [SerializeField] public bool canMove = true;
     [SerializeField] float timeAttack, attackCooldown;
 
     public float attackRange = 2f; // :3 Distância máxima para atacar
@@ -37,10 +38,15 @@ public class Player : MonoBehaviour
 
 
     void FixedUpdate()
-    {
+    {   
+
+        
+        if(!canMove) return;
+       
         
         // Capturando input horizontal do jogador.
         horizontalInput = Input.GetAxis("Horizontal");
+        
 
 
         // Se o Input for diferente de Zero, então mudo a animação para andar.

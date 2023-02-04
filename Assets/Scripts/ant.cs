@@ -14,6 +14,8 @@ public class ant : MonoBehaviour
     [SerializeField] Vector3 ant_pos;
     [SerializeField] Material defaultMaterial;
     [SerializeField] Material hitMaterial;
+    [SerializeField] Transform pointInit;
+    [SerializeField] Transform pointFinal;
     
     public float life = 5; //vida do inimigo
 
@@ -32,10 +34,6 @@ public class ant : MonoBehaviour
         // Movimenta o inimigo na direção atual
         rb.velocity = new Vector2(speed * (facingRight ? 1 : -1), rb.velocity.y);
 
-        if(dmgKnockback != 0){
-            rb.velocity = new Vector2(dmgKnockback, rb.velocity.y);
-            dmgKnockback = 0;
-        }
 
         if(facingRight){
             antSprite.flipX = true;
@@ -44,12 +42,13 @@ public class ant : MonoBehaviour
         }
 
         if(life <= 0){
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 0.6f);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         // Muda a direção do inimigo quando ele colide com algo
         facingRight = !facingRight;
     }
