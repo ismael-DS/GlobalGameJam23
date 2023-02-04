@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
     [SerializeField] float speed, jumpForce;
     [SerializeField] float horizontalInput;
-    [SerializeField] bool isGround;
+    [SerializeField] public bool isGround;
     [SerializeField] float dmgKnockback;
     [SerializeField] GameObject head,body,player;
     [SerializeField] Animator headAnimator, bodyAnimator;
