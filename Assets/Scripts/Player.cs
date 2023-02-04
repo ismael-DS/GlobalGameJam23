@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject head,body,player;
     [SerializeField] Animator headAnimator, bodyAnimator;
     [SerializeField] PlayerStats p1;
+    [SerializeField] Transform attackPoint;
+    [SerializeField] GameObject worm;
 
     public float attackRange = 2f; // :3 Distância máxima para atacar
     public float boomerangueRange = 5f; // :3 Distância máxima para atirar o boomerangue
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour
        headAnimator = head.GetComponent<Animator>();
        bodyAnimator = body.GetComponent<Animator>();
        p1 = player.GetComponent<PlayerStats>();
+       
 
        playerTransform = GetComponent<Transform>(); // :3 Inicializa a referência ao Transform do player
     }
@@ -33,7 +36,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        
         // Capturando input horizontal do jogador.
         horizontalInput = Input.GetAxis("Horizontal");
 
@@ -79,51 +82,30 @@ public class Player : MonoBehaviour
         }
         
 
-        if (Input.GetKeyDown(KeyCode.J)) // :3 Se o jogador apertar J ataca
+        if (Input.GetKey(KeyCode.J)) // :3 Se o jogador apertar J ataca
         {
-            
-            Collider2D[] hits = Physics2D.OverlapCircleAll(playerTransform.position, attackRange); // :3 Encontra todos os objetos dentro de um raio de attackRange
+            worm.SetActive(true);
+            worm.transform.position = attackPoint.transform.position;
+            worm.GetComponent<Animator>().SetBool("isAttack", true);
+            worm.GetComponent<Animator>().SetBool("isOut", false);
+            worm.GetComponent<BoxCollider2D>().enabled = true;
+            worm.GetComponent<SpriteRenderer>().sortingOrder = 7;
 
-            
-            foreach (Collider2D hit in hits) // :3 Percorre todos os objetos encontrados
-            {
-                // :3 Verifica se o objeto possui o componente ant
-                ant ant = hit.GetComponent<ant>();
-                if (ant != null)
-                {
-                    // :3 Diminui a vida do inimigo
-                    ant.life--;
-
-                    // :3 Verifica se a vida do inimigo chegou a zero
-                    if (ant.life <= 0)
-                    {
-                        Destroy(ant.gameObject); // :3 Destroi inimigo
-                    }
-                }
-            }
         }
 
-        if (Input.GetKeyDown(KeyCode.K)) // :3 Se o jogador apertar K atira o boomerangue
+
+            
+
+        // Setando condição padrão da minhoca
+
+        
+
+        // Programar ataque boomerang
+
+        /*if (Input.GetKeyDown(KeyCode.K)) 
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(playerTransform.position, boomerangueRange); // :3 Encontra todos os objetos dentro de um raio de boomerangueRange
-
-            foreach (Collider2D hit in hits) // :3 Percorre todos os objetos encontrados
-            {
-                // :3 Verifica se o objeto possui o componente ant
-                ant ant = hit.GetComponent<ant>();
-                if (ant != null)
-                {
-                    // :3 Diminui a vida do inimigo
-                    ant.life--;
-
-                    // :3 Verifica se a vida do inimigo chegou a zero
-                    if (ant.life <= 0)
-                    {
-                        Destroy(ant.gameObject); // :3 Destroi inimigo
-                    }
-                }
-            }
-        }
+            
+        }*/
 
     }
 
@@ -164,6 +146,8 @@ public class Player : MonoBehaviour
             dmgKnockback = -dmgImpulse;
         }
     }
+
+
 
 
 }

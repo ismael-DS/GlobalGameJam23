@@ -8,7 +8,7 @@ public class ant : MonoBehaviour
     private bool facingRight = true; // Direção atual do inimigo
     private SpriteRenderer antSprite;
     
-    public int life = 3; //vida do inimigo
+    public float life = 3; //vida do inimigo
 
     private Rigidbody2D rb; // Referencia ao componente Rigidbody2D do inimigo
 
@@ -35,4 +35,6 @@ public class ant : MonoBehaviour
         // Muda a direção do inimigo quando ele colide com algo
         facingRight = !facingRight;
     }
+
+
 }
