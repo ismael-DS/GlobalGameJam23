@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform attackPointRight, attackPointLeft;
     [SerializeField] bool isRight;
     [SerializeField] GameObject worm;
+    [SerializeField] float timeAttack, attackCooldown;
 
     public float attackRange = 2f; // :3 Distância máxima para atacar
     public float boomerangueRange = 5f; // :3 Distância máxima para atirar o boomerangue
@@ -89,8 +90,9 @@ public class Player : MonoBehaviour
             bodyAnimator.SetBool("isIdle", false);
         }
         
-
-        if (Input.GetKey(KeyCode.J)) // :3 Se o jogador apertar J ataca
+        attackCooldown += Time.deltaTime;
+        
+        if (Input.GetKey(KeyCode.J) && attackCooldown >= timeAttack) // :3 Se o jogador apertar J ataca
         {
             worm.SetActive(true);
             if(isRight){
@@ -103,6 +105,7 @@ public class Player : MonoBehaviour
             worm.GetComponent<Animator>().SetBool("isOut", false);
             worm.GetComponent<BoxCollider2D>().enabled = true;
             worm.GetComponent<SpriteRenderer>().sortingOrder = 7;
+            attackCooldown = 0f;
 
         }
 
@@ -160,7 +163,12 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    public void disableAttack(){
+        worm.gameObject.SetActive(false);
+        worm.GetComponent<Animator>().SetBool("isAttack", false);
+        worm.GetComponent<Animator>().SetBool("isOut", true);
+        worm.GetComponent<BoxCollider2D>().enabled = false;  
+    }
 
 
 }

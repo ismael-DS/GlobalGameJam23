@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ant : MonoBehaviour
 {
@@ -22,13 +23,12 @@ public class ant : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         antSprite = GetComponent<SpriteRenderer>();
-        ant_pos = gameObject.transform.position;
         defaultMaterial = gameObject.GetComponent<SpriteRenderer>().material;
     }
 
     private void Update()
     {
-        
+        ant_pos = gameObject.transform.position;
         // Movimenta o inimigo na direção atual
         rb.velocity = new Vector2(speed * (facingRight ? 1 : -1), rb.velocity.y);
 
@@ -42,6 +42,10 @@ public class ant : MonoBehaviour
         }else{
             antSprite.flipX = false;
         }
+
+        if(life <= 0){
+            Destroy(gameObject, 1f);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,6 +56,7 @@ public class ant : MonoBehaviour
 
     public void takeDamage(float dmg){
         life -= dmg;
+        popupText.GetComponent<TMP_Text>().text = dmg.ToString();
         setKnockback(dmgImpulse);
         Instantiate(popupText, ant_pos, Quaternion.identity, transform);
         StartCoroutine("dmgHit");
