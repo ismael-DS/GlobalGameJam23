@@ -14,6 +14,9 @@ public class MenuScript : MonoBehaviour
     public Sprite creditsImage;
     public Sprite muteButtonImage;
     public Sprite unmuteButtonImage;
+    public int currentLevel;
+    public GameObject creditsPanel;
+
 
     private void Start()
     {
@@ -23,8 +26,8 @@ public class MenuScript : MonoBehaviour
 
     public void PlayGame()
     {
-        print("Jogar");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Fase Inicial 1");
+        if(currentLevel == 0) UnityEngine.SceneManagement.SceneManager.LoadScene("Fase Inicial 1");
+        if(currentLevel == 1) UnityEngine.SceneManagement.SceneManager.LoadScene("Fase 2");
     }
 
     public void MuteMusic()
@@ -44,6 +47,7 @@ public class MenuScript : MonoBehaviour
 
     public void ShowCredits()
     {
+        creditsPanel.SetActive(true);
         GetComponent<Image>().sprite = creditsImage;
     }
 
@@ -55,5 +59,12 @@ public class MenuScript : MonoBehaviour
     public void ChangeLanguage()
     {
         // Código para mudar o idioma
+    }
+    private void Update()
+    {
+        if (creditsPanel.activeSelf && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Escape)))
+        {
+            creditsPanel.SetActive(false);
+        }
     }
 }

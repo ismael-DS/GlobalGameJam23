@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -64,6 +65,12 @@ public class PlayerStats : MonoBehaviour
             playerLife = 0;
             anim.runtimeAnimatorController = newController4;
             headReset.runtimeAnimatorController = newControllerHead4;
+            StartCoroutine(DelayLoadScene("Game Over"));
+        }
+        IEnumerator DelayLoadScene(string sceneName)
+        {   
+            yield return new WaitForSeconds(5f);
+            SceneManager.LoadScene(sceneName);
         }
     }
 
