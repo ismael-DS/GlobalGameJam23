@@ -157,6 +157,8 @@ MonoBehaviour:
   pointInit: {fileID: 0}
   pointFinal: {fileID: 0}
   life: 5
+  effectSource: {fileID: 0}
+  DeathSound: {fileID: 8300000, guid: 3deaf3e159d4b3841af3f3cf666f32c1, type: 3}
 --- !u!95 &948545065
 Animator:
   serializedVersion: 4
