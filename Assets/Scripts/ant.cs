@@ -20,6 +20,8 @@ public class ant : MonoBehaviour
     public float life = 5; //vida do inimigo
 
     private Rigidbody2D rb; // Referencia ao componente Rigidbody2D do inimigo
+    public AudioSource effectSource;
+    public AudioClip DeathSound;
 
     private void Start()
     {
@@ -43,6 +45,7 @@ public class ant : MonoBehaviour
 
         if(life <= 0){
             Destroy(gameObject, 0.6f);
+            effectSource.PlayOneShot(DeathSound);
         }
     }
 

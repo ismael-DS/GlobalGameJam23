@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public float attackRange = 2f; // :3 Distância máxima para atacar
     public float boomerangueRange = 5f; // :3 Distância máxima para atirar o boomerangue
     private Transform playerTransform; // :3 Referência ao Transform do player para calcular a distância entre ele e o inimigo
+    public AudioSource audioSource;
+    public AudioClip jumpSound;
 
     void Start()
     {
@@ -94,6 +96,10 @@ public class Player : MonoBehaviour
             bodyAnimator.SetBool("isJumping", true);
             bodyAnimator.SetBool("isWalking", false);
             bodyAnimator.SetBool("isIdle", false);
+            audioSource.clip = jumpSound;
+            audioSource.Play();
+            audioSource.PlayOneShot(jumpSound);
+
         }
         
         attackCooldown += Time.deltaTime;
@@ -148,6 +154,9 @@ public class Player : MonoBehaviour
         }
         if(coll.gameObject.tag == "lagarta"){ // :3 Se o player colidir com uma lagarta, ele perde 2 de vida (Modificado para inimigos darem direfentes tipos de dano)
             p1.takeDamage(3);
+        }
+        if(coll.gameObject.tag == "espinhos"){ // :3 Se o player colidir com um inseto, ele perde 3 de vida (Modificado para inimigos darem direfentes tipos de dano)
+            p1.takeDamage(100);
         }
         /*if(coll.gameObject.tag == "passaro"){ // :3 Se o player colidir com um passaro, ele perde 3 de vida (Modificado para inimigos darem direfentes tipos de dano)
             p1.takeDamage(3);

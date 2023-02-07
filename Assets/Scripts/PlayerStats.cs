@@ -23,7 +23,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] RuntimeAnimatorController newController1, newController2, newController3, newController4, 
     newControllerHead, newControllerHead2, newControllerHead3, newControllerHead4;
 
-   
+    public AudioSource audioSource;
+    public AudioClip hurtSound;
 
 
     // Start is called before the first frame update
@@ -79,6 +80,7 @@ public class PlayerStats : MonoBehaviour
         Instantiate(popupText, player_pos, Quaternion.identity, transform);
         p.setKnockback(dmgImpulse);
         StartCoroutine("Invunerability");
+        audioSource.PlayOneShot(hurtSound);
     }
     IEnumerator Invunerability(){
         Physics2D.IgnoreLayerCollision(6, 7, true);
